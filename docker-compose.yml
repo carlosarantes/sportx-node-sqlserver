@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  app:
+    container_name: app-sportx
+    restart: always
+    build: .
+    image: app-sportx
+    ports:
+      - "3000:3000"
