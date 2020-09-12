@@ -7,4 +7,4 @@ services:
     build: .
     image: app-sportx
     ports:
-      - "3000:3000"
+      - "3333:3333"
