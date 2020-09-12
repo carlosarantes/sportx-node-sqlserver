@@ -30,3 +30,5 @@ routes.post('/telefones/', TelefoneController.store);
 routes.put('/telefones/:id', TelefoneController.update);
 
 routes.delete('/telefones/:id', TelefoneController.destroy);
+
+module.exports = routes;
