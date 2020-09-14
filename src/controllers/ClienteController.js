@@ -35,10 +35,13 @@ module.exports = {
     async store(req, res) {
 
         try {
+
+            const userId = req.userId;
+
             let payload = req.body;
 
             const result = await msRequest.query(`insert into clientes (tipo_pessoa,nome,razao_social,cep,email,classificacao,userId)
-                                                  values('${payload.tipo_pessoa}', '${payload.nome}', '${payload.razao_social}', '${payload.cep}', '${payload.email}', '${payload.classificacao}', 1)`)
+                                                  values('${payload.tipo_pessoa}', '${payload.nome}', '${payload.razao_social}', '${payload.cep}', '${payload.email}', '${payload.classificacao}', ${userId})`)
 
             let message = null;
             if (result.rowsAffected[0] > 0) {

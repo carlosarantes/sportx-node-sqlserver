@@ -1,5 +1,6 @@
 const express = require('express');
 const routes  = express.Router();
+const authMiddleware = require('./middlewares/auth');
 
 const UserController = require('./controllers/UserController');
 const ClienteController = require('./controllers/ClienteController');
@@ -11,6 +12,9 @@ routes.post('/users/register', UserController.register);
 
 routes.post('/users/auth', UserController.auth);
 // ---------------------------------------
+
+routes.use(authMiddleware);
+
 routes.get('/clientes/', ClienteController.index);
 
 routes.get('/clientes/:id', ClienteController.show);
