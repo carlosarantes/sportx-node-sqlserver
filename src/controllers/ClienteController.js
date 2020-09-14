@@ -21,13 +21,13 @@ module.exports = {
     },
     async show(req, res) {
         try {
-        const result = await msRequest.query(`select * from clientes where id = ${req.params.id}`);
+            const result = await msRequest.query(`select * from clientes where id = ${req.params.id}`);
 
-        if(!result.recordset || result.recordset.length == 0) {
-            throw Error("Cliente não encontrado");
-        }
-        
-        return res.json(result.recordset[0]);
+            if(!result.recordset || result.recordset.length == 0) {
+                throw Error("Cliente não encontrado");
+            }
+            
+            return res.json(result.recordset[0]);
         } catch (e) {
             return res.json({ message : "Ocorreu um erro: "+ e.message }).status(400);
         }
