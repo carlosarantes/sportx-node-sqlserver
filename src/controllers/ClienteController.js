@@ -40,8 +40,8 @@ module.exports = {
 
             let payload = req.body;
 
-            const result = await msRequest.query(`insert into clientes (tipo_pessoa,nome,razao_social,cep,email,classificacao,userId)
-                                                  values('${payload.tipo_pessoa}', '${payload.nome}', '${payload.razao_social}', '${payload.cep}', '${payload.email}', '${payload.classificacao}', ${userId})`)
+            const result = await msRequest.query(`insert into clientes (tipo_pessoa,nome,cpf_cnpj,cep,email,classificacao,userId)
+                                                  values('${payload.tipo_pessoa}', '${payload.nome}', '${payload.cpf_cnpj}', '${payload.cep}', '${payload.email}', '${payload.classificacao}', ${userId})`)
 
             let message = null;
             if (result.rowsAffected[0] > 0) {
@@ -65,7 +65,7 @@ module.exports = {
             const result = await msRequest.query(`update clientes set
                                                   tipo_pessoa = '${payload.tipo_pessoa}',
                                                   nome = '${payload.nome}',
-                                                  razao_social = '${payload.razao_social}',
+                                                  cpf_cnpj = '${payload.cpf_cnpj}',
                                                   cep = '${payload.cep}',
                                                   email = '${payload.email}',
                                                   classificacao = '${payload.classificacao}'
