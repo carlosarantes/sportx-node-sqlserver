@@ -7,8 +7,13 @@ const config = {
     server: 'localhost'
 };
  
-sql.connect(config);
-const msRequest = new sql.Request();
+try {
+    sql.connect(config);
+    const msRequest = new sql.Request();
+ } catch(e) {
+     console.log(e.message);
+ }
+
 
 module.exports = {
     async index(req, res) {
